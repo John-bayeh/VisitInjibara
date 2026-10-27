@@ -1,0 +1,24 @@
+{
+  "id": "injibara-town",
+  "title": "Injibara Town Center",
+  "local_name": "ኢንጂባራ ከተማ",
+  "category": "community",
+  "description": "Vibrant highland capital of Awi Zone famous for the historic annual Agew Horsemen Festival, bustling Saturday highland market, fresh organic honey, and welcoming local eateries.",
+  "description_am": "የአዊ ዞን ዋና መዲና የሆነችው ኢንጂባራ፤ በታዋቂው ዓመታዊ የሰባት ቤት አገው የፈረሰኞች በዓል፣ በደማቁ የቅዳሜ ገበያዋ፣ በተፈጥሮ ማርና በእንግዳ ተቀባይነቷ የምትታወቅ ውብ የደጋ ከተማ ናት።",
+  "image_url": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+  "lat": 10.967,
+  "lng": 36.95,
+  "altitude_m": 2600,
+  "vehicle": "Fully paved Addis Ababa–Bahir Dar highway",
+  "vehicle_am": "በዋናው የአዲስ አበባ - ባህር ዳር አስፋልት መንገድ ላይ የሚገኝ",
+  "seasonal_warnings": "Crisp highland mountain weather year-round. Bring a jacket for cool evenings.",
+  "seasonal_warnings_am": "ቀዝቀዝ ያለ የደጋ አየር ስላለው ለምሽቱ ሰዓት ሞቅ ያለ ልብስ ይዘው ቢመጡ ይመረጣል።",
+  "last_verified": "2025-04-01",
+  "guide_phone": "+251923456789",
+  "connections": [
+    "lake-zengena",
+    "awi-cultural-center",
+    "guguftu-viewpoint",
+    "tilili-falls"
+  ]
+}

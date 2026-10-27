@@ -1,0 +1,22 @@
+{
+  "id": "lake-zengena",
+  "title": "Lake Zengena",
+  "local_name": "ዘንጌና ሐይቅ",
+  "category": "nature",
+  "description": "Ethiopia's 2nd deepest lake (166m depth) nestled inside an ancient volcanic crater at 2,400m elevation. Ringed by lush Afromontane forest, home to Colobus monkeys and exotic bird species.",
+  "description_am": "ከሻላ ሐይቅ ቀጥሎ በ166 ሜትር ጥልቀቱ የኢትዮጵያ ሁለተኛው ጥልቅ ሐይቅ የሆነው ዘንጌና፤ በጥንታዊ የእሳተ-ገሞራ አፍ (ክሬተር) ውስጥ የተኛ ድንቅ የተፈጥሮ ገጸ-በረከት ነው። በዙሪያው ባለው ጥቅጥቅ ደን ውስጥ ብርቅዬ ዝንጀሮዎችና አእዋፋት ይገኙበታል።",
+  "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+  "lat": 11.117,
+  "lng": 36.883,
+  "altitude_m": 2400,
+  "vehicle": "200m walk off main paved highway; scenic rim trail",
+  "vehicle_am": "ከአዲስ አበባ-ባህር ዳር ዋና የአስፋልት መንገድ 200 ሜትር ርቀት ላይ በእግር የሚደረስ",
+  "seasonal_warnings": "Lush & green year-round. Trail around crater rim can be damp in wet season (June–Sept).",
+  "seasonal_warnings_am": "ዓመቱን ሙሉ አረንጓዴና ውብ ነው። በክረምት ወቅት (ከሰኔ እስከ መስከረም) የሐይቁ ዙሪያ የእግር መንገድ ሊያዳልጥ ስለሚችል ጥንቃቄ ያድርጉ።",
+  "last_verified": "2025-03-15",
+  "guide_phone": "+251912345678",
+  "connections": [
+    "injibara-town",
+    "awi-cultural-center"
+  ]
+}

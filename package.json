@@ -1,0 +1,25 @@
+{
+  "name": "visit-injibara",
+  "version": "0.1.0",
+  "description": "Mobile-first tourism discovery platform for Injibara, Awi Region, Ethiopia",
+  "private": true,
+
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+
+  "scripts": {
+    "dev":       "npm run dev      --workspace=frontend",
+    "build":     "npm run build    --workspace=backend && npm run build --workspace=frontend",
+    "preview":   "npm run preview  --workspace=frontend",
+    "test":      "npm run test     --workspace=backend && npm run test --workspace=frontend",
+    "lint":      "npm run lint     --workspace=frontend && npm run lint --workspace=backend",
+    "typecheck": "npm run typecheck --workspace=frontend",
+    "validate":  "npm run validate --workspace=backend"
+  },
+
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

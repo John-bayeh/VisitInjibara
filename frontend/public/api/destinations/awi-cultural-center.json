@@ -1,0 +1,23 @@
+{
+  "id": "awi-cultural-center",
+  "title": "Awi Cultural Center",
+  "local_name": "የአዊ ባህል ማዕከል",
+  "category": "culture",
+  "description": "Living heritage museum celebrating the unique Agew-Awi civilization. Highlights include traditional horse cavalry regalia, woven textile looms, indigenous pottery, and folklore storytelling.",
+  "description_am": "የአገው-አዊን ጥንታዊና የበለጸገ ባህል የሚያስተዋውቅ ሕያው የቅርስ ማዕከል ነው። ባህላዊ የፈረስ ትጥቆች፣ የሽመና ጥበቦች፣ የሸክላ ሥራዎችና የአካባቢው ታሪክ በስፋት ይጎበኙበታል።",
+  "image_url": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80",
+  "lat": 10.97,
+  "lng": 36.948,
+  "altitude_m": 2580,
+  "vehicle": "5-minute walk from Injibara town square",
+  "vehicle_am": "ከኢንጂባራ ከተማ መሀል የ5 ደቂቃ የእግር መንገድ",
+  "seasonal_warnings": "Open Tuesday through Sunday (8:30 AM – 5:30 PM). Closed public holidays.",
+  "seasonal_warnings_am": "ከሰኞ በስተቀር ከማክሰኞ እስከ እሁድ (ከጠዋቱ 2:30 እስከ 11:30) ክፍት ነው። በሕዝባዊ በዓላት ዝግ ነው።",
+  "last_verified": "2025-02-20",
+  "guide_phone": "+251934567890",
+  "connections": [
+    "injibara-town",
+    "lake-zengena",
+    "awi-forest"
+  ]
+}

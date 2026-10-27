@@ -1,0 +1,24 @@
+{
+  "name": "visit-injibara-backend",
+  "version": "0.1.0",
+  "description": "Backend — data validation, build scripts, static API generation",
+  "type": "module",
+
+  "scripts": {
+    "dev":      "node --watch scripts/validate.js",
+    "validate": "node scripts/validate.js",
+    "build":    "node scripts/validate.js && node scripts/build-api.js",
+    "test":     "vitest run",
+    "lint":     "eslint src scripts --ext .ts,.js"
+  },
+
+  "dependencies": {},
+
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser":        "^8.18.0",
+    "eslint":                           "^9.16.0",
+    "typescript":                       "^5.7.2",
+    "vitest":                           "^2.1.8"
+  }
+}

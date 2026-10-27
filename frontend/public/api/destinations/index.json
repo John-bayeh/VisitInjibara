@@ -1,0 +1,50 @@
+[
+  {
+    "id": "lake-zengena",
+    "title": "Lake Zengena",
+    "local_name": "ዘንጌና ሐይቅ",
+    "category": "nature",
+    "lat": 11.117,
+    "lng": 36.883
+  },
+  {
+    "id": "injibara-town",
+    "title": "Injibara Town Center",
+    "local_name": "ኢንጂባራ ከተማ",
+    "category": "community",
+    "lat": 10.967,
+    "lng": 36.95
+  },
+  {
+    "id": "awi-cultural-center",
+    "title": "Awi Cultural Center",
+    "local_name": "የአዊ ባህል ማዕከል",
+    "category": "culture",
+    "lat": 10.97,
+    "lng": 36.948
+  },
+  {
+    "id": "guguftu-viewpoint",
+    "title": "Guguftu Escarpment Viewpoint",
+    "local_name": "ጉጉፍቱ ቁልቁለት",
+    "category": "viewpoint",
+    "lat": 10.943,
+    "lng": 36.912
+  },
+  {
+    "id": "tilili-falls",
+    "title": "Tilili Waterfall",
+    "local_name": "ቲሊሊ ፏፏቴ",
+    "category": "nature",
+    "lat": 11.05,
+    "lng": 36.99
+  },
+  {
+    "id": "awi-forest",
+    "title": "Awi Afromontane Forest",
+    "local_name": "የአዊ ደን",
+    "category": "ecology",
+    "lat": 11.08,
+    "lng": 36.92
+  }
+]

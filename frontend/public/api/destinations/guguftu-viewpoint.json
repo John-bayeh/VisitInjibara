@@ -1,0 +1,22 @@
+{
+  "id": "guguftu-viewpoint",
+  "title": "Guguftu Escarpment Viewpoint",
+  "local_name": "ጉጉፍቱ ቁልቁለት",
+  "category": "viewpoint",
+  "description": "A breathtaking cliff ledge at 2,700m overlooking a sheer 2,000m drop toward the Western lowlands. Renowned for spectacular sunrise panoramas that stretch over 100km across the valleys.",
+  "description_am": "በ2,700 ሜትር ከፍታ ላይ የሚገኝ ድንቅ የተፈጥሮ ሰገነት ሲሆን፤ ወደ መተከል ቆላማ አካባቢዎች ቁልቁል የሚታይበት አስደናቂ እይታ አለው። በተለይም ማለዳ ላይ የሚወጣው ፀሐይ እይታ እጅግ ማራኪ ነው።",
+  "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+  "lat": 10.943,
+  "lng": 36.912,
+  "altitude_m": 2700,
+  "vehicle": "4WD required for the unpaved mountain approach",
+  "vehicle_am": "የተራራ መንገድ በመሆኑ ባለአራት ጎማ (4WD) ተሽከርካሪ ያስፈልጋል",
+  "seasonal_warnings": "Early morning fog between Oct–Dec; best visited before 9:00 AM for crystal-clear skies.",
+  "seasonal_warnings_am": "ከጥቅምት እስከ ታህሳስ ባለው ጊዜ ማለዳ ላይ ጉም ሊኖር ስለሚችል፤ ጥርት ያለውን የተራራ እይታ ለማየት ከጠዋቱ 3:00 ሰዓት በፊት መድረስ ይመረጣል።",
+  "last_verified": "2025-01-10",
+  "guide_phone": "+251945678901",
+  "connections": [
+    "injibara-town",
+    "awi-forest"
+  ]
+}

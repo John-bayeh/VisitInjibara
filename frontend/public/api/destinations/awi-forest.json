@@ -1,0 +1,24 @@
+{
+  "id": "awi-forest",
+  "title": "Awi Afromontane Forest",
+  "local_name": "የአዊ ደን",
+  "category": "ecology",
+  "description": "A protected highland ecological sanctuary home to ancient Hagenia and Juniperus trees, rare medicinal herbs, and over 120 recorded species of endemic birds.",
+  "description_am": "ኮሶ እና ጽድ የመሳሰሉ ጥንታዊ የሀገር በቀል ዛፎች፣ ባህላዊ የመድኃኒት ቅጠላቅጠሎችና ከ120 በላይ የወፍ ዝርያዎች መኖሪያ የሆነ የተከበረ የተፈጥሮ ደን ነው።",
+  "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+  "lat": 11.08,
+  "lng": 36.92,
+  "altitude_m": 2500,
+  "vehicle": "Accessible by tuk-tuk or walking from Zengena junction",
+  "vehicle_am": "ከዘንጌና መታጠፊያ በባጃጅ ወይም በእግር መድረስ ይቻላል",
+  "seasonal_warnings": "Guided walking only. October through May is prime for birdwatchers.",
+  "seasonal_warnings_am": "ከጥቅምት እስከ ግንቦት ድረስ ወፎችን ለመመልከትና ለተፈጥሮ የእግር ጉዞ ተስማሚ ወቅት ነው። ከአካባቢ አስጎብኚ ጋር ብቻ መጓዝ ይመረጣል።",
+  "last_verified": "2025-02-28",
+  "guide_phone": null,
+  "connections": [
+    "lake-zengena",
+    "awi-cultural-center",
+    "guguftu-viewpoint",
+    "tilili-falls"
+  ]
+}

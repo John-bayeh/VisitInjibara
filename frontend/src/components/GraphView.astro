@@ -1,0 +1,242 @@
+---
+// ──────────────────────────────────────────────────────────
+// frontend/src/components/GraphView.astro
+//
+// Relational Graph View built strictly with SVG & Canvas.
+// Reacts dynamically to Amharic / English toggle.
+// ──────────────────────────────────────────────────────────
+import type { Destination } from '../types/destination';
+
+interface Props {
+  destinations: Destination[];
+}
+
+const { destinations } = Astro.props;
+
+const centerX = 200;
+const centerY = 200;
+const radius = 135;
+
+const nodePositions = destinations.map((d, i) => {
+  const angle = (i / destinations.length) * 2 * Math.PI - Math.PI / 2;
+  return {
+    ...d,
+    x: Math.round(centerX + radius * Math.cos(angle)),
+    y: Math.round(centerY + radius * Math.sin(angle)),
+  };
+});
+
+const nodeMap = new Map(nodePositions.map(n => [n.id, n]));
+
+const edges: { from: typeof nodePositions[0]; to: typeof nodePositions[0]; key: string }[] = [];
+nodePositions.forEach(source => {
+  source.connections.forEach(targetId => {
+    const target = nodeMap.get(targetId);
+    if (target) {
+      const key = [source.id, target.id].sort().join('--');
+      if (!edges.some(e => e.key === key)) {
+        edges.push({ from: source, to: target, key });
+      }
+    }
+  });
+});
+---
+
+<div id="graphContainer" class="w-full h-full relative min-h-[500px] bg-slate-950 p-3 sm:p-6 flex flex-col items-center justify-center">
+  <!-- Informational Header -->
+  <div class="w-full max-w-xl flex items-center justify-between text-xs text-slate-300 mb-3 px-2">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+      <span id="graphTitle" class="font-bold text-white">Interactive Destination Network</span>
+    </div>
+    <span id="graphInstruction" class="text-[11px] text-amber-400 font-semibold bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-600/30">
+      Tap any circle to view photo & details
+    </span>
+  </div>
+
+  <div class="relative w-full max-w-xl aspect-square flex items-center justify-center">
+    <svg
+      id="graphSvg"
+      class="w-full h-full bg-slate-900/60 border border-slate-800 rounded-3xl p-2 sm:p-4 shadow-2xl"
+      viewBox="0 0 400 400"
+      role="graphics-document"
+      aria-label="Relational Graph of Destinations in Awi Zone"
+    >
+      <!-- Connection Edges -->
+      <g id="graphEdges">
+        {edges.map((edge) => (
+          <line
+            x1={edge.from.x}
+            y1={edge.from.y}
+            x2={edge.to.x}
+            y2={edge.to.y}
+            stroke="#334155"
+            stroke-width="2.5"
+            stroke-dasharray="5 5"
+            class="transition-all duration-300 edge-line"
+            data-edge-from={edge.from.id}
+            data-edge-to={edge.to.id}
+          />
+        ))}
+      </g>
+
+      <!-- Center Regional Hub Anchor -->
+      <circle cx="200" cy="200" r="24" fill="#020617" stroke="#10b981" stroke-width="2" class="shadow" />
+      <text id="graphHubLabel" x="200" y="198" text-anchor="middle" fill="#10b981" font-size="10" font-weight="900" class="tracking-widest">AWI</text>
+      <text id="graphHubSub" x="200" y="210" text-anchor="middle" fill="#64748b" font-size="7.5" font-weight="bold">ZONE</text>
+
+      <!-- Destination Nodes -->
+      <g id="graphNodes">
+        {nodePositions.map((node) => {
+          const color =
+            node.category === 'nature' ? '#10b981' :
+            node.category === 'community' ? '#f59e0b' :
+            node.category === 'culture' ? '#a855f7' :
+            node.category === 'viewpoint' ? '#f43f5e' : '#059669';
+
+          const icon =
+            node.category === 'nature' ? '🌊' :
+            node.category === 'community' ? '🏛️' :
+            node.category === 'culture' ? '🏺' :
+            node.category === 'viewpoint' ? '🏔️' : '🌿';
+
+          return (
+            <g
+              class="graph-node-group cursor-pointer group outline-none"
+              tabindex="0"
+              role="button"
+              aria-label={`Explore ${node.title}, ${node.category}`}
+              data-node-id={node.id}
+            >
+              <circle
+                cx={node.x}
+                cy={node.y}
+                r="34"
+                fill="none"
+                stroke={color}
+                stroke-width="1.5"
+                stroke-opacity="0.4"
+                class="transition-all duration-200 group-hover:scale-110 origin-center"
+              />
+
+              <circle
+                cx={node.x}
+                cy={node.y}
+                r="28"
+                fill={color}
+                stroke="#ffffff"
+                stroke-width="2.5"
+                class="node-circle transition-all duration-200 group-hover:scale-105 group-focus:scale-105 origin-center filter drop-shadow-xl"
+              />
+
+              <text
+                x={node.x}
+                y={node.y - 4}
+                text-anchor="middle"
+                font-size="12"
+                class="pointer-events-none select-none"
+              >
+                {icon}
+              </text>
+
+              <text
+                id={`node-title-${node.id}`}
+                x={node.x}
+                y={node.y + 11}
+                text-anchor="middle"
+                fill="#ffffff"
+                font-size="8.5"
+                font-weight="800"
+                class="pointer-events-none select-none font-sans drop-shadow-sm"
+              >
+                {node.title.replace(' Waterfall', '').replace(' Escarpment', '').replace(' Center', '').replace(' Afromontane', '').split(' ')[0]}
+              </text>
+            </g>
+          );
+        })}
+      </g>
+    </svg>
+  </div>
+</div>
+
+<script>
+  import type { Destination } from '../types/destination';
+  import type { TranslationDictionary, Language } from '../utils/i18n';
+
+  const nodes = document.querySelectorAll<SVGGElement>('.graph-node-group');
+  const edges = document.querySelectorAll<SVGLineElement>('.edge-line');
+  const destinations: Destination[] = (window as any).__DESTINATIONS__ || [];
+
+  nodes.forEach(nodeGroup => {
+    const nodeId = nodeGroup.dataset.nodeId;
+    if (!nodeId) return;
+
+    const activate = () => {
+      const dest = destinations.find(d => d.id === nodeId);
+      if (!dest) return;
+
+      const connectedIds = new Set([nodeId, ...dest.connections]);
+
+      nodes.forEach(ng => {
+        const id = ng.dataset.nodeId || '';
+        if (connectedIds.has(id)) {
+          ng.style.opacity = '1';
+        } else {
+          ng.style.opacity = '0.2';
+        }
+      });
+
+      edges.forEach(edge => {
+        const from = edge.dataset.edgeFrom || '';
+        const to = edge.dataset.edgeTo || '';
+        if ((from === nodeId && connectedIds.has(to)) || (to === nodeId && connectedIds.has(from))) {
+          edge.setAttribute('stroke', '#10b981');
+          edge.setAttribute('stroke-width', '4');
+          edge.removeAttribute('stroke-dasharray');
+          edge.style.opacity = '1';
+        } else {
+          edge.setAttribute('stroke', '#334155');
+          edge.setAttribute('stroke-width', '1.5');
+          edge.setAttribute('stroke-dasharray', '5 5');
+          edge.style.opacity = '0.15';
+        }
+      });
+
+      window.dispatchEvent(new CustomEvent('selectdestination', { detail: { destination: dest } }));
+    };
+
+    nodeGroup.addEventListener('click', activate);
+    nodeGroup.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activate();
+      }
+    });
+  });
+
+  // Language change listener for Graph View
+  window.addEventListener('languagechange', ((e: CustomEvent<{ lang: Language; t: TranslationDictionary }>) => {
+    const { lang, t } = e.detail;
+    const titleEl = document.getElementById('graphTitle');
+    const instEl = document.getElementById('graphInstruction');
+    const hubLabel = document.getElementById('graphHubLabel');
+    const hubSub = document.getElementById('graphHubSub');
+
+    if (titleEl) titleEl.textContent = t.graph.title;
+    if (instEl) instEl.textContent = t.graph.instruction;
+    if (hubLabel) hubLabel.textContent = t.graph.hubLabel;
+    if (hubSub) hubSub.textContent = t.graph.hubSub;
+
+    // Node labels: English vs Amharic short name
+    destinations.forEach(dest => {
+      const label = document.getElementById(`node-title-${dest.id}`);
+      if (label) {
+        if (lang === 'am') {
+          label.textContent = dest.local_name.split(' ')[0];
+        } else {
+          label.textContent = dest.title.replace(' Waterfall', '').replace(' Escarpment', '').replace(' Center', '').replace(' Afromontane', '').split(' ')[0];
+        }
+      }
+    });
+  }) as EventListener);
+</script>

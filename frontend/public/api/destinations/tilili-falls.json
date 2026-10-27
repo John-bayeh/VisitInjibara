@@ -1,0 +1,22 @@
+{
+  "id": "tilili-falls",
+  "title": "Tilili Waterfall",
+  "local_name": "ቲሊሊ ፏፏቴ",
+  "category": "nature",
+  "description": "Majestic multi-tiered cascade plunging 60 metres through mist-shrouded highland canyon. Surrounding riverbanks abound with indigenous orchids, ferns, and Colobus monkeys.",
+  "description_am": "በጥቅጥቅ ደንና ቋጥኞች መካከል በ60 ሜትር ከፍታ ቁልቁል የሚወርድ ውብ ባለሦስት እርከን ፏፏቴ ነው። በዙሪያው ያሉት ዛፎች በጉሬዛ ዝንጀሮዎችና ብርቅዬ እፅዋት የተሞሉ ናቸው።",
+  "image_url": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80",
+  "lat": 11.05,
+  "lng": 36.99,
+  "altitude_m": 2150,
+  "vehicle": "Regular car to trailhead, followed by an easy 20-min nature walk",
+  "vehicle_am": "መኪና መንገዱ ድረስ ይደርሳል፤ በመቀጠል የ20 ደቂቃ ምቹ የእግር ጉዞ ይጠይቃል",
+  "seasonal_warnings": "Peak water discharge Sept–Nov after rain season. Swimming in designated calm pools only.",
+  "seasonal_warnings_am": "ከክረምት በኋላ (ከመስከረም እስከ ህዳር) የፏፏቴው ውኃ ሞልቶ እጅግ ያምራል። ውኃ ውስጥ ሲገቡ በተፈቀዱ የተረጋጉ ቦታዎች ብቻ ይዋኙ።",
+  "last_verified": "2025-03-01",
+  "guide_phone": "+251956789012",
+  "connections": [
+    "injibara-town",
+    "awi-forest"
+  ]
+}

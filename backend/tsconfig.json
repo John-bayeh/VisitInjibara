@@ -1,0 +1,20 @@
+{
+  // backend/tsconfig.json
+  // The backend uses plain Node.js — no Astro, no browser APIs.
+  // We use the base strict config without Astro-specific settings.
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    // Node.js built-in type definitions
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "scripts/**/*"],
+  "exclude": ["node_modules"]
+}

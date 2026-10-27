@@ -1,0 +1,85 @@
+---
+// ──────────────────────────────────────────────────────────
+// frontend/src/components/ViewSwitcher.astro
+//
+// Persistent header control that toggles between Map, Graph,
+// and List views. Reacts instantly to Amharic / English toggle.
+// ──────────────────────────────────────────────────────────
+---
+
+<nav class="bg-slate-900/90 border-b border-slate-800/80 px-3 py-2 flex items-center justify-center gap-1.5 z-20" aria-label="View switch">
+  <button
+    id="btn-nav-map"
+    type="button"
+    class="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-md shadow-emerald-950/50 touch-target"
+    data-view="map"
+    aria-pressed="true"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+    </svg>
+    <span id="navMapText">Map View</span>
+  </button>
+
+  <button
+    id="btn-nav-graph"
+    type="button"
+    class="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800/80 touch-target"
+    data-view="graph"
+    aria-pressed="false"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>
+    <span id="navGraphText">Relational Graph</span>
+  </button>
+
+  <button
+    id="btn-nav-list"
+    type="button"
+    class="flex-1 py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800/80 touch-target"
+    data-view="list"
+    aria-pressed="false"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+    <span id="navListText">Destinations</span>
+  </button>
+</nav>
+
+<script>
+  import type { TranslationDictionary, Language } from '../utils/i18n';
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-view]');
+  const activeClass = 'bg-emerald-600 text-white shadow-md shadow-emerald-950/50';
+  const inactiveClass = 'text-slate-400 hover:text-white hover:bg-slate-800/80';
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetView = btn.dataset.view;
+      if (!targetView) return;
+
+      buttons.forEach(b => {
+        b.className = `flex-1 py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 touch-target ${
+          b === btn ? activeClass : inactiveClass
+        }`;
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+
+      window.dispatchEvent(new CustomEvent('viewchange', { detail: { view: targetView } }));
+    });
+  });
+
+  // Language update listener
+  window.addEventListener('languagechange', ((e: CustomEvent<{ lang: Language; t: TranslationDictionary }>) => {
+    const { t } = e.detail;
+    const mapText = document.getElementById('navMapText');
+    const graphText = document.getElementById('navGraphText');
+    const listText = document.getElementById('navListText');
+
+    if (mapText) mapText.textContent = t.views.map;
+    if (graphText) graphText.textContent = t.views.graph;
+    if (listText) listText.textContent = t.views.list;
+  }) as EventListener);
+</script>
